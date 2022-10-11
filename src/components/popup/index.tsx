@@ -76,10 +76,10 @@ export const Popup:FC<{
         <div className="header" onMouseDown={(e) => {startPopupmove(e)}}>
           {header}
         </div>
-        <div className="body" onClick={()=> close(false)}>
-          {body}{count}
+        <div className="body">
+          {body}
         </div>
-        <div className="footer">
+        <div className="footer" onClick={()=> close(false)}>
           {footer}
         </div>
       </figure>
