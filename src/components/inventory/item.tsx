@@ -13,26 +13,24 @@ const style: CSSProperties = {
 };
 
 export interface BoxProps {
-  name: string;
-  type: string;
-  isDropped: boolean;
+  item: any;
 }
 
-export const Item: FC<BoxProps> = memo(function Box({ name, type, isDropped }) {
+export const Item: FC<BoxProps> = memo(function Box({ item }) {
   const [{ opacity }, drag] = useDrag(
     () => ({
-      type,
-      item: { name },
+      type: item.type,
+      item: item,
       collect: (monitor) => ({
         opacity: monitor.isDragging() ? 0.4 : 1
       })
     }),
-    [name, type]
+    [item]
   );
 
   return (
     <div ref={drag} style={{ ...style, opacity }} data-testid="box">
-      {isDropped ? <s>{name}</s> : name}
+      {item.name}
     </div>
   );
 });
