@@ -18,7 +18,7 @@ export interface BoxProps {
   isDropped: boolean;
 }
 
-export const Box: FC<BoxProps> = memo(function Box({ name, type, isDropped }) {
+export const Item: FC<BoxProps> = memo(function Box({ name, type, isDropped }) {
   const [{ opacity }, drag] = useDrag(
     () => ({
       type,
