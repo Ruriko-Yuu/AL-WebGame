@@ -5,7 +5,8 @@ import { useDrag } from "react-dnd";
 const style: CSSProperties = {
   border: "1px dashed gray",
   backgroundColor: "white",
-  padding: "0.5rem 1rem",
+  width: "100%",
+  height: "100%",
   marginRight: "1.5rem",
   marginBottom: "1.5rem",
   cursor: "move",

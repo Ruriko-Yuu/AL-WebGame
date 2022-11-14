@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { memo } from "react";
 import { useDrop } from "react-dnd";
 import { quickFor } from "@/utils/tools";
+import { Item } from "./item";
 export interface FieldProps {
   list: any;
 }
@@ -26,6 +27,7 @@ export const Field: FC<FieldProps> = memo(({ list }) => {
       useDrop({
         accept: ["1"],
         drop: (item) => {
+          list[i] = item
           console.log(item, i);
         },
         collect: (monitor) => ({
@@ -39,7 +41,7 @@ export const Field: FC<FieldProps> = memo(({ list }) => {
     <FieldContainer style={{ width: "360px", height: "300px" }}>
       {list.map((ele: any, idx: number) => (
         <li ref={dropList[idx][1]} key={idx}>
-          {1}
+          {ele.name ? <Item item={ele} /> : <>empty</>}
         </li>
       ))}
     </FieldContainer>
